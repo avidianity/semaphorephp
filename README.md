@@ -121,14 +121,14 @@ $response = $client->senderNames();
 ```json
 [
   {
-    "name":"Semaphore",
-    "status":"Active",
-    "created":"2016-01-01 00:00:01"
+    "name": "Semaphore",
+    "status": "Active",
+    "created": "2016-01-01 00:00:01"
   },
   {
-    "name":"Kickstart",
-    "status":"Active",
-    "created":"2016-01-01 00:00:01""
+    "name": "Kickstart",
+    "status": "Active",
+    "created": "2016-01-01 00:00:01""
   }
 ]
 ```
