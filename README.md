@@ -2,8 +2,6 @@
 
 A wrapper for accessing the Semaphore SMS API
 
-Note: This only works on nodejs, using this on the browser will not work.
-
 ## Table of Contents
 
 - [SemaphorePHP](#semaphorephp)
