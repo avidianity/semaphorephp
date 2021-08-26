@@ -31,7 +31,7 @@ $client = new Client('your api key', [/* options */]);
 $response = $client->send('09991234567', 'your message');
 
 // multiple recipients
-$recipients = ['09991234567', '09997654321'];
+$recipients = '09991234567, 09997654321';
 $response = $client->send($recipients, 'your message');
 ```
 
