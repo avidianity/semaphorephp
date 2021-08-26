@@ -1,0 +1,21 @@
+{
+	"name": "avidian/semaphorephp",
+	"description": "A wrapper for accessing the Semaphore SMS API",
+	"type": "library",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"Avidian\\Semaphore\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "John Michael Manlupig",
+			"email": "manlupigjohnmichael@gmail.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"guzzlehttp/guzzle": "^7.3"
+	}
+}
