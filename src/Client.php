@@ -7,7 +7,7 @@ use GuzzleHttp\Client as GuzzleHttpClient;
 
 class Client
 {
-    const API_BASE = 'https://api.semaphore.co/api/v4/';
+    const BASE_URL = 'https://api.semaphore.co/api/v4/';
 
     public $apikey;
     public $senderName = null;
@@ -16,7 +16,7 @@ class Client
     /**
      * SemaphoreClient constructor.
      * @param $apikey
-     * @param array $options ( e.g. sendername, apiBase )
+     * @param array $options ( e.g. sendername, baseUrl )
      */
     public function __construct($apikey, array $options = [])
     {
@@ -27,11 +27,11 @@ class Client
             $this->senderName = $options['sendername'];
         }
 
-        $apiBase = static::API_BASE;
-        if (isset($options['apiBase'])) {
-            $apiBase = $options['apiBase'];
+        $baseUrl = static::BASE_URL;
+        if (isset($options['baseUrl'])) {
+            $baseUrl = $options['baseUrl'];
         }
-        $this->client = new GuzzleHttpClient(['base_uri' => $apiBase, 'query' => ['apikey' => $this->apikey]]);
+        $this->client = new GuzzleHttpClient(['base_uri' => $baseUrl, 'query' => ['apikey' => $this->apikey]]);
     }
 
     /**
@@ -48,7 +48,7 @@ class Client
     /**
      * Send SMS message(s)
      *
-     * @param string $recipient
+     * @param string|string[] $recipient
      * @param string $message - The message you want to send
      * @param string|null $sendername
      * @return \Psr\Http\Message\ResponseInterface
@@ -57,7 +57,7 @@ class Client
     public function send($recipient, $message, $sendername = null)
     {
 
-        $recipients = explode(',', $recipient);
+        $recipients = is_array($recipient) ? $recipient : explode(',', $recipient);
         if (count($recipients) > 1000) {
             throw new SemaphoreException('API is limited to sending to 1000 recipients at a time');
         }
